@@ -22,13 +22,14 @@ module.exports = appInfo => {
     password_secret: 'nieyaoniubee666',
     auth_cookie_name: 'token',
     jwtSecret: 'nieyao',
+    authWhiteList: [ '/', '/login', '/user/register' ],
   };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1550804129545_4518';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [ 'authorization' ];
 
   // add your user config here
   const userConfig = {

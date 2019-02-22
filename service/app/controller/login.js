@@ -17,9 +17,9 @@ class LoginController extends Controller {
     if (token) {
       const opts = {
         path: '/',
-        maxAge: 1000*60*60*24*7,
-        httpOnly: false,
-        domain: '127.0.0.1'
+        maxAge: 10000*60*60*24*7,
+        // httpOnly: false,
+        // domain: '127.0.0.1'
       };
       this.ctx.cookies.set(this.config.auth_cookie_name, token, opts);
       this.ctx.status = 200;
