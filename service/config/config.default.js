@@ -10,7 +10,19 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = {};
+  const config = {
+    security: { csrf: { enable: false } },
+    sequelize: {
+      dialect: 'mysql',
+      host: '127.0.0.1',
+      port: 3306,
+      password: '123456',
+      database: 'newbeeforum',
+    },
+    password_secret: 'nieyaoniubee666',
+    auth_cookie_name: 'token',
+    jwtSecret: 'nieyao',
+  };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1550804129545_4518';
@@ -20,14 +32,6 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    security: { csrf: { enable: false } },
-    sequelize: {
-      dialect: 'mysql',
-      host: '127.0.0.1',
-      port: 3306,
-      password: '123456',
-      database: 'newbeeforum',
-    },
   };
 
   return {
