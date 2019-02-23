@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import './index.styl';
 import logo from '@images/NBF.png'
 import { Input, Button, Avatar, Row, Col } from 'antd';
+import { connect } from 'react-redux';
+import API from '@common/api';
+import { withRouter } from 'react-router';
 
 class Nav extends React.Component {
   render() {
@@ -43,13 +46,38 @@ class Nav extends React.Component {
               <a className="ant-dropdown-link" href="#">
                 <Avatar size="large" icon="user" />
               </a>
-            </Dropdown>
-            
+            </Dropdown> 
           </Col>
         </Row>
       </nav>
     )
   }
+  componentDidMount () {
+    if (!this.props.userInfo.userId) {
+      API.getUserInfo().then(response => {
+        // console.log(response);
+        this.props.addUserInfo(response.data);
+      })
+    }
+  }
 }
 
-export default Nav;
+export default withRouter(
+  connect(
+    store => {
+      return {
+        userInfo: store.userInfo
+      }
+    },
+    dispatch => {
+      return {
+        addUserInfo: info => {
+          dispatch({
+            type: 'ADD_USERINFO',
+            info
+          })
+        }
+      }
+    }
+  )(Nav)
+);
