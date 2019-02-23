@@ -1,8 +1,12 @@
 import React from 'react';
 import './index.styl';
 import { Carousel } from 'antd';
-import SignUp from './signup/index.js'
-import SignIn from './signIn/index.js'
+import SignUp from './signup/index.js';
+import SignIn from './signIn/index.js';
+import hanbing from '@images/hanbing.jpg';
+import zhaoxin from '@images/zhaoxin.jpg';
+import jianji from '@images/jianji.jpg';
+import qinnv from '@images/qinnv.jpg';
 
 class Login extends React.Component {
   constructor(props) {
@@ -19,22 +23,28 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <Carousel autoplay className="slide">
-          <div><h3>1</h3></div>
-          <div><h3>2</h3></div>
-          <div><h3>3</h3></div>
-          <div><h3>4</h3></div>
-        </Carousel>
+        {
+          this.state.isSignUp
+          ?<Carousel autoplay className="slide" >
+            <div><img src={hanbing} style={{width:"100%",height:"100%"}} /></div>
+            <div><img src={zhaoxin} style={{width:"100%",height:"100%"}} /></div>
+            <div><img src={jianji} style={{width:"100%",height:"100%"}} /></div>
+            <div><img src={qinnv} style={{width:"100%",height:"100%"}} /></div>
+          </Carousel>
+          : null
+        }
         {
           this.state.isSignUp
             ? <SignIn />
-            : <SignUp />
+            : <SignUp toggleSign={this.toggleSign.bind(this)} />
         }
-        {
-          this.state.isSignUp
-            ? <span>没有账号？<a className="notice" onClick={this.toggleSign.bind(this)} >注册</a></span>
-            : <span>有账号了？<a className="notice" onClick={this.toggleSign.bind(this)}>请登录</a></span>
-        }
+        <div className="notice">
+          {
+            this.state.isSignUp
+              ? <div >没有账号？<a onClick={this.toggleSign.bind(this)} >注册</a></div>
+              : <div>有账号了？<a onClick={this.toggleSign.bind(this)}>请登录</a></div>
+          }
+        </div>
       </div>
     )
   }

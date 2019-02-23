@@ -9,16 +9,21 @@ import API from '@common/api';
 import { withRouter } from 'react-router';
 
 class Nav extends React.Component {
+  async signOut () {
+    let response = await API.signOut();
+    notification['success'] ({
+      message: response.message
+    })
+    setTimeout(() => {
+      this.props.history.push('/login')
+    }, 500);
+  }
   render() {
     const Search = Input.Search;
     const menu = (
       <Menu>
-        <Menu.Item key="0">
-          <a href="http://www.newbeelity.cn/">关于我</a>
-        </Menu.Item>
-        <Menu.Item key="1">
-          <a href="http://www.newbeelity.cn/">退出登录</a>
-        </Menu.Item>
+        <Menu.Item key="0">关于我</Menu.Item>
+        <Menu.Item key="1" onClick={this.signOut.bind(this)}>退出登录</Menu.Item>
       </Menu>
     );
     return (
@@ -46,13 +51,13 @@ class Nav extends React.Component {
               <a className="ant-dropdown-link" href="#">
                 <Avatar size="large" icon="user" />
               </a>
-            </Dropdown> 
+            </Dropdown>
           </Col>
         </Row>
       </nav>
     )
   }
-  componentDidMount () {
+  componentDidMount() {
     if (!this.props.userInfo.userId) {
       API.getUserInfo().then(response => {
         // console.log(response);
