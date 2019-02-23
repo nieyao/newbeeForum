@@ -24,12 +24,7 @@ class UserService extends Service {
       .digest('hex');
 
     const userInfo = await this.ctx.model.User.create(user);
-    this.ctx.status = 200;
-    this.ctx.body = {
-      msg: '注册成功',
-      userId: user.userId,
-      flag: true
-    }
+    this.ctx.returnBody(200, '注册成功');
     return userInfo.dataVules;
   }
 

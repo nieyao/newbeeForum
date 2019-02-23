@@ -22,7 +22,7 @@ module.exports = appInfo => {
     password_secret: 'nieyaoniubee666',
     auth_cookie_name: 'token',
     jwtSecret: 'nieyao',
-    authWhiteList: [ '/api', '/api/login', '/api/user/register' ],
+    authWhiteList: [ '/api', '/api/login', '/api/login/register' ],
   };
 
   // use for cookie sign key, should change to your own and keep security
