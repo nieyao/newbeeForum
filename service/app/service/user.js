@@ -66,6 +66,14 @@ class UserService extends Service {
       }
     })
   }
+
+  async getUserByUserId(userId) {
+    return this.ctx.model.User.findOne({
+      where:{
+        userId
+      }
+    })
+  }
 }
 
 module.exports = UserService;
