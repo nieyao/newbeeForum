@@ -20,12 +20,13 @@ class TopicService extends Service {
   //   })
   // }
 
-  async queryTopicCounts(query) {
-    return await this.ctx.model.Topic.findAndCountAll({
-      where: query,
-      order: [['created_at', 'DESC']]
-    })
-  }
+  // async queryTopicCounts(query) {
+  //   return await this.ctx.model.Topic.findAndCountAll({
+  //     where: query,
+  //     order: [['created_at', 'DESC']]
+  //   })
+  // }
+
 }
 
 module.exports = TopicService;

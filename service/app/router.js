@@ -13,5 +13,6 @@ module.exports = app => {
 
   // Topic
   router.post('/api/topic/add', controller.topic.addTopic);
+  router.get('/api/topic/list', controller.topic.queryAllTopics);
   router.get('/api/topic/detail', controller.topic.topicDetail);
 };
