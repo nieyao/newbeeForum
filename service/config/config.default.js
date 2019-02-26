@@ -13,6 +13,16 @@ module.exports = appInfo => {
   const config = {
     security: { csrf: { enable: false } },
     sequelize: {
+      cluster: {
+        listen: {
+          path: '',
+          port: 7001,
+          hostname: '0.0.0.0',
+        },
+      },
+      cors: {
+        allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+      },
       dialect: 'mysql',
       host: '127.0.0.1',
       port: 3306,

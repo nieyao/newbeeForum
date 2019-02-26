@@ -9,6 +9,7 @@
   "dependencies": {
     "crypto": "^1.0.1",
     "egg": "^2.15.1",
+    "egg-cors": "^2.1.2",
     "egg-scripts": "^2.11.0",
     "egg-sequelize": "^4.3.1",
     "jsonwebtoken": "^8.5.0",

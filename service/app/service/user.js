@@ -11,11 +11,7 @@ class UserService extends Service {
     const queryResult = await this.hasRegister(user.email);
     // console.log(queryResult, user)
     if (queryResult) {
-      this.ctx.status = 200;
-      this.ctx.body = {
-        msg: '邮箱已被使用',
-        flag: false
-      }
+      this.ctx.returnBody(200, '邮箱已被注册');
       return;
     }
     // 加密保存用户密码
