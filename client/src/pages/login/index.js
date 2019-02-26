@@ -3,10 +3,6 @@ import './index.styl';
 import { Carousel } from 'antd';
 import SignUp from './signup/index.js';
 import SignIn from './signIn/index.js';
-import hanbing from '@images/hanbing.jpg';
-import zhaoxin from '@images/zhaoxin.jpg';
-import jianji from '@images/jianji.jpg';
-import qinnv from '@images/qinnv.jpg';
 
 class Login extends React.Component {
   constructor(props) {
@@ -26,10 +22,10 @@ class Login extends React.Component {
         {
           this.state.isSignUp
           ?<Carousel autoplay className="slide" >
-            <div><img src={hanbing} style={{width:"100%",height:"100%"}} /></div>
-            <div><img src={zhaoxin} style={{width:"100%",height:"100%"}} /></div>
-            <div><img src={jianji} style={{width:"100%",height:"100%"}} /></div>
-            <div><img src={qinnv} style={{width:"100%",height:"100%"}} /></div>
+            <div><img src='http://pnb7xhu8b.bkt.clouddn.com/hanbing.jpg' style={{width:"100%",height:"100%"}} /></div>
+            <div><img src='http://pnb7xhu8b.bkt.clouddn.com/zhaoxin.jpg' style={{width:"100%",height:"100%"}} /></div>
+            <div><img src='http://pnb7xhu8b.bkt.clouddn.com/jianji.jpg' style={{width:"100%",height:"100%"}} /></div>
+            <div><img src='http://pnb7xhu8b.bkt.clouddn.com/qinnv.jpg' style={{width:"100%",height:"100%"}} /></div>
           </Carousel>
           : null
         }

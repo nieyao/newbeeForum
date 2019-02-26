@@ -8,7 +8,7 @@ module.exports = {
     main: path.resolve(clientPath, 'index.js')
   },
   output: {
-    publicPath: '/',
+    publicPath: './',
     path: path.resolve(clientPath, 'dist'),
     filename: 'src/[name].js'
   },

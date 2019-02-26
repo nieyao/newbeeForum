@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": ".",
   "scripts": {
+    "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
   "keywords": [],
@@ -12,17 +14,17 @@
   "dependencies": {
     "antd": "^3.13.5",
     "axios": "^0.18.0",
-    "babel-plugin-import": "^1.11.0",
+    "qiniu-js": "^2.5.4",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
-    "react-virtualized": "^9.21.0",
-    "redux": "^4.0.1",
-    "reqwest": "^2.0.5",
-    "stylus": "^0.54.5"
+    "redux": "^4.0.1"
+    
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.11.0",
+    "stylus": "^0.54.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-runtime": "^6.23.0",

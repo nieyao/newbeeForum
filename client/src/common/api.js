@@ -24,3 +24,13 @@ exports.signOut = () => {
 exports.queryAllTopics = () => {
   return instance.get('/api/topic/list');
 }
+
+// 发帖
+exports.addTopic = (data) => {
+  return instance.post('api/topic/add', data);
+}
+
+// 获取七牛云token
+exports.getToken = () => {
+  return instance.get('/api/handle/upload/get-token');
+}

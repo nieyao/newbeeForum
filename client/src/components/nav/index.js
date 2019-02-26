@@ -44,7 +44,7 @@ class Nav extends React.Component {
             />
           </Col>
           <Col span={2} className="post">
-            <Button type="primary" style={{}}>发帖</Button>
+            <Button type="primary" onClick={this.props.postTopic}>发帖</Button>
           </Col>
           <Col span={2} className="avatar">
             <Dropdown overlay={menu} trigger={['click']}>
