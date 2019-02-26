@@ -25,8 +25,14 @@ class TopicController extends Controller {
 
   // 查出所有帖子
   async queryAllTopics() {
-    let allTopics = await this.ctx.model.Topic.findAll();
-    // console.log('这里开始',allTopics,'我是查出来的数据')
+    const User = this.ctx.model.User;
+    let allTopics = await this.ctx.model.Topic.findAll({
+      include: {
+        model: User
+      },
+      order: [['created_at', 'DESC']]
+    });
+    // console.log('这里开始', allTopics, '我是查出来的数据')
     this.ctx.returnBody(200, '成功', allTopics);
   }
 }

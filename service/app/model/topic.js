@@ -12,5 +12,9 @@ module.exports = app => {
   }, {
     freezeTableName: true // 不自动加复数
   })
+
+  Topic.associate = function() {
+    Topic.belongsTo(app.model.User, { foreignKey: 'userId', targetKey: 'userId' });
+}
   return Topic
 }
