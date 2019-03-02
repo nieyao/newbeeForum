@@ -10,7 +10,7 @@ module.exports = {
   },
   output: {
     publicPath: '/',
-    path: path.resolve(clientPath, 'dist'),
+    path: path.resolve(clientPath, 'client'),
     filename: `src/${version}main.js`
   },
   module: {

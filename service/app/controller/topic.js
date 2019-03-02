@@ -6,13 +6,13 @@ class TopicController extends Controller {
   // 发帖
   async addTopic() {
     const { topicImg, topicTitle } = this.ctx.request.body;
+    console.log('执行了',this.ctx.request.body)
     const userId = this.ctx.user.userId;
     let newTopic = {
       topicImg: JSON.stringify(topicImg),
       topicTitle,
       userId
     }
-
     await this.ctx.service.topic.insertTopic(newTopic);
     this.ctx.returnBody(200, '发帖成功');
   }

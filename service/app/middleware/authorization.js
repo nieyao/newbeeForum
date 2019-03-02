@@ -1,7 +1,6 @@
 'use strict';
 module.exports = (options, app) => {
   return async function(ctx, next) {
-    console.log("拦截器")
     if (app.config.authWhiteList.indexOf(ctx.url) !== -1) {
       await next(options);
       return;
@@ -18,7 +17,7 @@ module.exports = (options, app) => {
       await next(options);
     } else {
       ctx.returnBody(401, "you don't access to get data");
-      return
+      return;
     }
   }
 }
