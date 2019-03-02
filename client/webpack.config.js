@@ -2,15 +2,16 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const clientPath = path.resolve(__dirname);
+const version = '1.1';
 
 module.exports = {
   entry: {
     main: path.resolve(clientPath, 'index.js')
   },
   output: {
-    publicPath: './',
+    publicPath: '/',
     path: path.resolve(clientPath, 'dist'),
-    filename: 'src/[name].js'
+    filename: `src/${version}main.js`
   },
   module: {
     rules: [

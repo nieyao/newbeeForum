@@ -20,6 +20,24 @@ class postTopic extends React.Component {
 
   // 发帖
   async doPostTopic() {
+    if ( !this.state.imgUrl && !this.state.topicDescript ) {
+      notification['error']({
+        message: '发空帖是没有意义的哦！'
+      })
+      return;
+    }
+    if ( !this.state.imgUrl ) {
+      notification['error']({
+        message: '请至少插入一张图片！'
+      })
+      return;
+    }
+    if ( !this.state.topicDescript ) {
+      notification['error']({
+        message: '请说点什么吧！'
+      })
+      return;
+    }
     let response = await API.addTopic({
       topicImg: this.state.imgUrl,
       topicTitle: this.state.topicDescript
