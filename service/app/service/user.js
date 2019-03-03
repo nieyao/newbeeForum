@@ -65,6 +65,18 @@ class UserService extends Service {
       }
     })
   }
+
+  async updateProfile(query){
+    return this.ctx.model.User.update(
+      {
+        avatarUrl: query.newAvatarUrl,
+      },
+      {
+        where: {
+          userId: query.userId
+        }
+      })
+  }
 }
 
 module.exports = UserService;
