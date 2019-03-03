@@ -11,6 +11,7 @@ class DiyUpload extends React.Component {
       previewVisible: false,
       previewImage: '',
       fileList: [],
+      limit: this.props.limit || 2
     };
   }
 
@@ -76,10 +77,10 @@ class DiyUpload extends React.Component {
           onPreview={this.handlePreview.bind(this)}
           onChange={this.handleChange.bind(this)}
         >
-          {fileList.length >= 2 ? null : uploadButton}
+          {fileList.length >= this.state.limit ? null : uploadButton}
         </Upload>
-          { this.state.previewVisible
-            ? <div className={this.state.previewVisible ? 'previewVisible' : ''}>
+          { previewVisible
+            ? <div className={previewVisible ? 'previewVisible' : ''}>
                 <img alt="example" src={previewImage} />
                 <Icon type="close-circle" onClick={this.handleCancel.bind(this)} style={{color: 'white', fontSize: '30px'}} />
               </div>

@@ -34,3 +34,8 @@ exports.addTopic = (data) => {
 exports.getToken = () => {
   return instance.get('/api/handle/upload/get-token');
 }
+
+// 更新用户信息
+exports.updateUserInfo = (data) => {
+  return instance.post('/api/user/profile', data);
+}

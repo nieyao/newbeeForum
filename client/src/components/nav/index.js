@@ -22,7 +22,9 @@ class Nav extends React.Component {
     const Search = Input.Search;
     const menu = (
       <Menu>
-        <Menu.Item key="0">关于我</Menu.Item>
+        <Menu.Item key="0">
+          <Link to="/user/profile" >关于我</Link>
+        </Menu.Item>
         <Menu.Item key="1" onClick={this.signOut.bind(this)}>退出登录</Menu.Item>
       </Menu>
     );
@@ -49,7 +51,7 @@ class Nav extends React.Component {
           <Col span={2} className="avatar">
             <Dropdown overlay={menu} trigger={['click']}>
               <a className="ant-dropdown-link" href="#">
-                <Avatar size="large" icon="user" />
+                <Avatar size="large" src={this.props.userInfo.avatarUrl} />
               </a>
             </Dropdown>
           </Col>
